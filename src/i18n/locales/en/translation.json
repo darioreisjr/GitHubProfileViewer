@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "GitHub Profile Viewer",
+    "description": "Enter a GitHub username to view their profile information and repositories."
+  },
+  "search": {
+    "placeholder": "Enter a GitHub username",
+    "button": "Search",
+    "searching": "Searching for user...",
+    "initialMessage": "Enter a GitHub username above to view their profile",
+    "initialHelp": "Try searching for 'octocat', 'facebook', or 'google'"
+  },
+  "profile": {
+    "followers": "Followers",
+    "following": "Following",
+    "repos": "Repositories",
+    "viewOnGithub": "View on GitHub"
+  },
+  "repos": {
+    "title": "Recent Repositories",
+    "noDescription": "No description"
+  },
+  "error": {
+    "notFound": "User not found. Please check the username and try again.",
+    "rateLimit": "API rate limit exceeded. Please try again later.",
+    "generic": "An error occurred. Please try again."
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}

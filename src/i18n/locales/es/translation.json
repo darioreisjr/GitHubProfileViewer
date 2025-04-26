@@ -1,0 +1,24 @@
+{
+  "app": {
+    "title": "Visor de Perfiles de GitHub"
+  },
+  "search": {
+    "placeholder": "Introduce un nombre de usuario de GitHub",
+    "button": "Buscar"
+  },
+  "profile": {
+    "followers": "Seguidores",
+    "following": "Siguiendo",
+    "repos": "Repositorios",
+    "viewOnGithub": "Ver en GitHub"
+  },
+  "repos": {
+    "title": "Repositorios Recientes",
+    "noDescription": "Sin descripción"
+  },
+  "error": {
+    "notFound": "Usuario no encontrado. Verifica el nombre de usuario e inténtalo de nuevo.",
+    "rateLimit": "Límite de tasa de API excedido. Inténtalo de nuevo más tarde.",
+    "generic": "Ocurrió un error. Inténtalo de nuevo."
+  }
+}
