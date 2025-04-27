@@ -1,22 +1,33 @@
 import React from 'react';
-import { CssBaseline, ThemeProvider, Box } from '@mui/material';
+import { ThemeProvider as MuiThemeProvider, CssBaseline, Box } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
-import theme from './styles/theme';
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import getTheme from './styles/theme';
 import Header from './components/layout/Header';
 import HomePage from './pages/HomePage';
 import TestPage from './pages/TestPage';
+import GitHubBackground from './components/common/GitHubBackground';
 
-const App: React.FC = () => {
+// Component that consumes the theme context
+const ThemedApp: React.FC = () => {
+  const { mode } = useTheme();
+  
+  // Generate the theme based on current mode
+  const theme = getTheme(mode);
+  
   return (
-    <ThemeProvider theme={theme}>
+    <MuiThemeProvider theme={theme}>
       <CssBaseline />
+      <GitHubBackground />
       <Box
         sx={{
           display: 'flex',
           width: '100vw',
           flexDirection: 'column',
           minHeight: '100vh',
-          alignItems: 'center', // Centraliza todo o conteúdo
+          alignItems: 'center',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
         <Header />
@@ -34,6 +45,15 @@ const App: React.FC = () => {
           </Routes>
         </Box>
       </Box>
+    </MuiThemeProvider>
+  );
+};
+
+// Main App component that provides the theme context
+const App: React.FC = () => {
+  return (
+    <ThemeProvider>
+      <ThemedApp />
     </ThemeProvider>
   );
 };

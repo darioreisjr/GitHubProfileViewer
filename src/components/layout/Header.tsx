@@ -20,6 +20,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
 import LanguageSelector from '../ui/LanguageSelector';
+import ThemeToggle from '../ui/ThemeToggle';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
 const Header: React.FC = () => {
@@ -60,8 +61,9 @@ const Header: React.FC = () => {
         ))}
       </List>
       <Divider sx={{ my: 2 }} />
-      <Box sx={{ p: 2 }}>
-        <LanguageSelector fullWidth />
+      <Box sx={{ p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <LanguageSelector fullWidth={false} />
+        <ThemeToggle size="small" />
       </Box>
     </Box>
   );
@@ -74,6 +76,7 @@ const Header: React.FC = () => {
       sx={{
         zIndex: theme.zIndex.drawer + 1,
         width: '100%',
+        transition: 'background-color 0.3s ease',
       }}
     >
       <Container maxWidth="lg">
@@ -90,14 +93,18 @@ const Header: React.FC = () => {
           </Box>
 
           {isMobile ? (
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={() => toggleDrawer(true)}
-            >
-              <MenuIcon />
-            </IconButton>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <ThemeToggle size="small" />
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="end"
+                onClick={() => toggleDrawer(true)}
+                sx={{ ml: 1 }}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           ) : (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               {menuItems.map((item) => (
@@ -110,6 +117,7 @@ const Header: React.FC = () => {
                   {item.text}
                 </Button>
               ))}
+              <ThemeToggle />
               <LanguageSelector />
             </Box>
           )}
