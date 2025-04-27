@@ -27,6 +27,7 @@ GitHub Profile Viewer é uma aplicação web responsiva que permite aos usuário
 - **Exibição Detalhada de Perfil**: Visualize avatar, biografia, localização, empresa e outros detalhes do perfil
 - **Lista de Repositórios**: Veja os repositórios mais recentes do usuário com detalhes como linguagem, estrelas e forks
 - **Design Totalmente Responsivo**: Funciona perfeitamente em dispositivos móveis, tablets e desktops
+- **Tema Claro/Escuro**: Alternância entre temas claro e escuro com easter eggs do GitHub no plano de fundo
 - **Suporte a Múltiplos Idiomas**: Interface disponível em inglês, português e espanhol
 - **Gerenciamento Robusto de Estado**: Usando Zustand para um controle de estado previsível
 - **Validação de Formulários**: Validação no lado do cliente com React Hook Form e Zod
@@ -102,6 +103,16 @@ A aplicação é totalmente responsiva e proporciona uma experiência de visuali
 - **Visualização em Tablet**: Layouts aprimorados com melhor espaçamento e legibilidade
 - **Visualização em Desktop**: Interface completa com visualizações em lista e conteúdo expandido
 
+## 🌓 Tema Claro/Escuro
+
+A aplicação suporta alternância entre temas claro e escuro:
+
+- **Toggle com Animação**: Botão de alternância com ícones de sol/lua e efeitos visuais ao clicar
+- **Easter Eggs do GitHub**: Elementos temáticos do GitHub flutuando sutilmente no plano de fundo
+- **Persistência de Preferências**: Armazena a preferência do usuário no localStorage
+- **Detecção Automática**: Usa o esquema de cores do sistema como padrão inicial
+- **Transições Suaves**: Mudanças de tema com transições suaves para melhor experiência do usuário
+
 ## 🌐 Internacionalização
 
 A aplicação suporta múltiplos idiomas:
@@ -127,6 +138,8 @@ src/
 │   │   └── ... # Componentes relacionados à pesquisa
 │   └── ui/
 │       └── ... # Componentes de UI
+├── contexts/
+│   └── ThemeContext.tsx # Contexto de tema claro/escuro
 ├── hooks/
 │   └── ... # Hooks personalizados
 ├── services/
@@ -203,6 +216,7 @@ O Material UI fornece a base para estilização com extensões personalizadas de
 ```typescript
 const theme = createTheme({
   palette: {
+    mode: 'light', // ou 'dark'
     primary: {
       main: '#2b3137',
       light: '#565a5f',
@@ -224,9 +238,9 @@ const theme = createTheme({
 });
 ```
 
-## 🚧 Melhorias Futuras
+## 🚧 Implementações Futuras
 
-- **Alternância de Modo Escuro**: Adicionar suporte para alternância entre temas claro e escuro
+- ~~**Alternância de Modo Escuro**: Adicionar suporte para alternância entre temas claro e escuro~~ ✅ **Implementado!**
 - **Autenticação GitHub**: Permitir que usuários façam login com suas contas do GitHub
 - **Opções de Pesquisa Avançada**: Filtrar usuários por localização, linguagem, etc.
 - **Gráfico de Atividade do Usuário**: Exibir atividade de contribuição do usuário
